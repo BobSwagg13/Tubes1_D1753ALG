@@ -1,0 +1,10 @@
+{
+  "name": "B3040PKK",
+  "version": "1.0",
+  "authors": ["Kenneth Poenadi"],
+  "description": "MANA YANG DEKET SINI KU TABRAK😡",
+  "homepage": "",
+  "countryCodes": ["id"],
+  "platform": ".Net 6.0",
+  "programmingLang": "C# 10.0"
+}

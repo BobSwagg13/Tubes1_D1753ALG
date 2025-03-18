@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <RootNamespace>TemplateBot</RootNamespace>
+        <RootNamespace>B3040PKK</RootNamespace>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <LangVersion>10.0</LangVersion>

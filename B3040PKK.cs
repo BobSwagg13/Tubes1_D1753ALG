@@ -3,7 +3,7 @@ using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
-public class TemplateBot : Bot
+public class B3040PKK : Bot
 {   
     int turnDirection = 1;
     int lockedTargetId = -1;
@@ -13,10 +13,10 @@ public class TemplateBot : Bot
 
     static void Main(string[] args)
     {
-        new TemplateBot().Start();
+        new B3040PKK().Start();
     }
 
-    TemplateBot() : base(BotInfo.FromFile("TemplateBot.json")) { }
+    B3040PKK() : base(BotInfo.FromFile("B3040PKK.json")) { }
 
     public override void Run()
     {
