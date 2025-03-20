@@ -8,7 +8,7 @@ public class B3040PKK : Bot
     int turnDirection = 1;
     int lockedTargetId = -1;
     int lostTargetCount = 0;
-    const int maxLostTargetCount = 10;
+    const int maxLostTargetCount = 3;
     double EnergiMusuh = 100;
 
     static void Main(string[] args)
@@ -20,16 +20,16 @@ public class B3040PKK : Bot
 
     public override void Run()
     {
-        BodyColor = Color.Gray;
-        GunColor = Color.Black;
-        RadarColor = Color.Red;
+        BodyColor = Color.Red;
+        GunColor = Color.Yellow;
+        RadarColor = Color.Black;
 
         while (IsRunning)
         {
             if (Energy < 5) 
             {
                 SetTurnRight(100);
-                SetForward(50);
+                SetBack(120);
             }
             else if (RadarTurnRemaining == 0)
             {
@@ -43,7 +43,11 @@ public class B3040PKK : Bot
 
     public override void OnScannedBot(ScannedBotEvent e)
     {
-        if (lockedTargetId == -1 || lockedTargetId == e.ScannedBotId)
+        if (Energy < 5) {
+            SetForward(100);
+            SetTurnRight(100);
+        }
+        else if  (lockedTargetId == -1 || lockedTargetId == e.ScannedBotId)
         {
             lockedTargetId = e.ScannedBotId;
             lostTargetCount = 0;
@@ -82,8 +86,10 @@ public class B3040PKK : Bot
     public override void OnHitBot(HitBotEvent e)
     {
         // Jika menabrak bot lain, langsung ubah target ke bot tersebut
-        lockedTargetId = e.VictimId;
-        lostTargetCount = 0;
+        if (e.IsRammed) {
+            lockedTargetId = e.VictimId;
+            lostTargetCount = 0;
+        }
         HadapTarget(e.X, e.Y);
         Fire(3);
     }
