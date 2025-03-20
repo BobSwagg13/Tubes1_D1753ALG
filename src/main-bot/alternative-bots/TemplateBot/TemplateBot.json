@@ -1,0 +1,10 @@
+{
+  "name": "Lebron James",
+  "version": "1.0",
+  "authors": ["Bob"],
+  "description": "The GOAT",
+  "homepage": "",
+  "countryCodes": ["id"],
+  "platform": ".Net 6.0",
+  "programmingLang": "C# 10.0"
+}
