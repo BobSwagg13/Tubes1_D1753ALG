@@ -44,10 +44,8 @@ public class LeBotJames : Bot
         {   
             SetTurnRadarRight(360 * turnDirection);
             Go();
-            if(EnemyCount > 1){
-                stuck = false;
-            }
-            if((distanceToEnemy > 100 && EnemyCount> 1 && distanceToEnemy < 200) || stuck){
+            
+            if((distanceToEnemy < 200) || stuck){
                 //chill mode
                 StrafeMove();
             }
@@ -61,7 +59,7 @@ public class LeBotJames : Bot
     public override void OnScannedBot(ScannedBotEvent e)
     {
         double angleToEnemy = BearingTo(xEnemy, yEnemy);
-        if((EnemyCount > 1 && distanceToEnemy < 200) || stuck){
+        if(distanceToEnemy < 200 || stuck){
             //perpendicular to the enemy
             SetTurnLeft(angleToEnemy + 90); 
         }
@@ -178,6 +176,12 @@ public class LeBotJames : Bot
         Console.WriteLine("I hit " + shotPersentage + " of my shots");
     }
 
+    public override void OnTick(TickEvent e)
+    {
+        if(e.TurnNumber % 10 == 0){
+            stuck = false;
+        }
+    }
     private void StrafeMove()
     {
         Forward(100 + 100 * random.NextDouble());
