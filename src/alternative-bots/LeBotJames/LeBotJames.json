@@ -1,0 +1,10 @@
+{
+  "name": "LeBot James",
+  "version": "6.0",
+  "authors": ["Bob Kunanda"],
+  "description": "My glorious king LeBot James",
+  "homepage": "",
+  "countryCodes": ["us"],
+  "platform": ".Net 6.0",
+  "programmingLang": "C# 10.0"
+}
