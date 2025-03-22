@@ -1,0 +1,11 @@
+{
+    "name": "BOTak",
+    "version": "1.0",
+    "authors": ["Kenneth Poenadi"],
+    "description": "AKU TAKUT AKU CABUT WKWK",
+    "homepage": "",
+    "countryCodes": ["id"],
+    "platform": ".Net 6.0",
+    "programmingLang": "C# 10.0"
+  }
+  
