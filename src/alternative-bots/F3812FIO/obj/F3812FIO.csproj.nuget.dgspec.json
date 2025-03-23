@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Muzaraar\\Documents\\Kuliah\\Kelas_Kuliah\\Semester_4\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\F3812FIO\\F3812FIO.csproj": {}
+    "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\F3812FIO\\F3812FIO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Muzaraar\\Documents\\Kuliah\\Kelas_Kuliah\\Semester_4\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\F3812FIO\\F3812FIO.csproj": {
+    "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\F3812FIO\\F3812FIO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Muzaraar\\Documents\\Kuliah\\Kelas_Kuliah\\Semester_4\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\F3812FIO\\F3812FIO.csproj",
+        "projectUniqueName": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\F3812FIO\\F3812FIO.csproj",
         "projectName": "F3812FIO",
-        "projectPath": "C:\\Users\\Muzaraar\\Documents\\Kuliah\\Kelas_Kuliah\\Semester_4\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\F3812FIO\\F3812FIO.csproj",
-        "packagesPath": "C:\\Users\\Muzaraar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Muzaraar\\Documents\\Kuliah\\Kelas_Kuliah\\Semester_4\\tubes1-if2211-starter-pack-1.0\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\F3812FIO\\obj\\",
+        "projectPath": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\F3812FIO\\F3812FIO.csproj",
+        "packagesPath": "C:\\Users\\kenne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\F3812FIO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Muzaraar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\kenne\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -63,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

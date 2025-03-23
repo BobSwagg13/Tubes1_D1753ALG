@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kenne\\Tubes1_STIMA\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\B3040PKK\\B3040PKK.csproj": {}
+    "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\B3040PKK\\B3040PKK.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kenne\\Tubes1_STIMA\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\B3040PKK\\B3040PKK.csproj": {
+    "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\B3040PKK\\B3040PKK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kenne\\Tubes1_STIMA\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\B3040PKK\\B3040PKK.csproj",
+        "projectUniqueName": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\B3040PKK\\B3040PKK.csproj",
         "projectName": "B3040PKK",
-        "projectPath": "C:\\Users\\kenne\\Tubes1_STIMA\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\B3040PKK\\B3040PKK.csproj",
+        "projectPath": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\B3040PKK\\B3040PKK.csproj",
         "packagesPath": "C:\\Users\\kenne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kenne\\Tubes1_STIMA\\tubes1-if2211-starter-pack-1.0\\sample-bots-csharp-0.30.0\\B3040PKK\\obj\\",
+        "outputPath": "C:\\Users\\kenne\\merginggggg\\src\\alternative-bots\\B3040PKK\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kenne\\AppData\\Roaming\\NuGet\\NuGet.Config"

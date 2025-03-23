@@ -1,7 +1,7 @@
 {
   "name": "Jeb_",
   "version": "1.0",
-  "authors": ["IRK Lab Assistant"],
+  "authors": ["Kenneth Poenadi", "Bob Kunanda", "M Zahran Ramadhan"],
   "description": "A bot that drives forward and backward, and fires a bullet",
   "homepage": "",
   "countryCodes": ["id"],

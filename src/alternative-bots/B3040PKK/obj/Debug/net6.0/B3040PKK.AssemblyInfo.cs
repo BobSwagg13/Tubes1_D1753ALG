@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("B3040PKK")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2b14790c6c6dc733c72fe55f17356a9d231db25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d11b5e58509515c462ff3b47cb15ae19002ad5f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("B3040PKK")]
 [assembly: System.Reflection.AssemblyTitleAttribute("B3040PKK")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
