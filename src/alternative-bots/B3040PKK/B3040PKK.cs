@@ -54,8 +54,7 @@ public class B3040PKK : Bot
 
             double angleToEnemy = Direction + BearingTo(e.X, e.Y);
             double radarTurn = NormalizeRelativeAngle(angleToEnemy - RadarDirection);
-            double extraTurn = Math.Min(Math.Atan(36.0 / DistanceTo(e.X, e.Y)), 45);
-
+            double extraTurn = Math.Min(Math.Atan(40.0 / DistanceTo(e.X, e.Y)) * 180.0 / Math.PI, 45.0);
             radarTurn += (radarTurn < 0 ? -extraTurn : extraTurn);
 
             SetTurnRadarLeft(radarTurn);
