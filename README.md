@@ -47,6 +47,10 @@ Untuk menjalankan program ini, dibutuhkan:
 
 ---
 
+Absolutely! Here's the updated section with `dotnet build` and `dotnet run` added for clarity and flexibility:
+
+---
+
 ### iii. 🛠️ Langkah Build & Compile Program
 Untuk membangun dan menjalankan bot:
 
@@ -55,11 +59,20 @@ Untuk membangun dan menjalankan bot:
    cd src/main-bot/Jeb
    ```
 
-2. **Build project:**
+2. **Build project menggunakan perintah .NET:**
    ```bash
-   ./Jeb.cmd
+   dotnet build
    ```
 
+3. **Jalankan bot:**
+   ```bash
+   dotnet run
+   ```
+
+> Alternatif: jika tersedia, kamu juga bisa menjalankan script langsung seperti:
+> ```bash
+> ./Jeb.cmd
+> ```
 
 > Ulangi langkah di atas untuk masing-masing bot alternatif di folder `alternative-bots` jika ingin dijalankan atau diuji.
 
