@@ -1,0 +1,56 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "alternative-bots", "alternative-bots", "{A3963A42-BA02-1665-FEE3-9A6867D26CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3040PKK", "src\alternative-bots\B3040PKK\B3040PKK.csproj", "{FB92184B-67B5-9569-6F4B-C29836572F4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D1753ALG", "src\alternative-bots\D1753ALG\D1753ALG.csproj", "{CA424304-5A22-0F15-7C8E-2019F452A321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F3812FIO", "src\alternative-bots\F3812FIO\F3812FIO.csproj", "{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "main-bot", "main-bot", "{4FCDFDB7-A417-3C3F-0910-8A045F02A9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeb", "src\main-bot\Jeb\Jeb.csproj", "{D258D217-57C8-9164-A26B-D41C84CADBC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB92184B-67B5-9569-6F4B-C29836572F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB92184B-67B5-9569-6F4B-C29836572F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB92184B-67B5-9569-6F4B-C29836572F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB92184B-67B5-9569-6F4B-C29836572F4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA424304-5A22-0F15-7C8E-2019F452A321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA424304-5A22-0F15-7C8E-2019F452A321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA424304-5A22-0F15-7C8E-2019F452A321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA424304-5A22-0F15-7C8E-2019F452A321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D258D217-57C8-9164-A26B-D41C84CADBC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D258D217-57C8-9164-A26B-D41C84CADBC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D258D217-57C8-9164-A26B-D41C84CADBC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D258D217-57C8-9164-A26B-D41C84CADBC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3963A42-BA02-1665-FEE3-9A6867D26CB0} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{FB92184B-67B5-9569-6F4B-C29836572F4B} = {A3963A42-BA02-1665-FEE3-9A6867D26CB0}
+		{CA424304-5A22-0F15-7C8E-2019F452A321} = {A3963A42-BA02-1665-FEE3-9A6867D26CB0}
+		{9F2670AD-209F-B0D0-2B04-2FE2A5AB951D} = {A3963A42-BA02-1665-FEE3-9A6867D26CB0}
+		{4FCDFDB7-A417-3C3F-0910-8A045F02A9B3} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{D258D217-57C8-9164-A26B-D41C84CADBC9} = {4FCDFDB7-A417-3C3F-0910-8A045F02A9B3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19950804-17D9-4BB6-8297-6A76364F8CE0}
+	EndGlobalSection
+EndGlobal
