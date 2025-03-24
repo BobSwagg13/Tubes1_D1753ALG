@@ -287,40 +287,33 @@ public class Jeb : Bot
         }
 
         collisionCounter++;
-        if (collisionCounter > 3) 
+        if (collisionCounter > 2 || stuck) 
         {
             lockedTargetId = e.VictimId;
             enemyPosition = new Point2D(e.X, e.Y);
             double radarTurn = NormalizeRelativeAngle(RadarBearingTo(enemyPosition.X, enemyPosition.Y));
             double gunTurn = NormalizeRelativeAngle(GunBearingTo(enemyPosition.X, enemyPosition.Y));
             double extraTurn = Math.Min(Math.Atan(36.0 / DistanceTo(enemyPosition.X, enemyPosition.Y)), 45);
+            double bodyTurn = NormalizeRelativeAngle(BearingTo(enemyPosition.X, enemyPosition.Y) + 180);
             radarTurn = radarTurn + (radarTurn < 0 ? -extraTurn : extraTurn);
             SetTurnRadarLeft(0); SetTurnRadarLeft(radarTurn);SetTurnGunLeft(gunTurn);
             Go();
             Fire(3);
             Console.WriteLine("Stuck ramming an enemy! Escaping.");
             stuck = true;
-            unstuck();
+            unstuck(bodyTurn);
             collisionCounter = 0;
         }
     }
 
     //unstuck (belakangin musuh, terus kabur kearah kiri/kanan berdasar posisi (mirip run away))
-    public void unstuck()
+    public void unstuck(double dir)
     {
-        Console.WriteLine("Enemy make me stuck in " + RadarDirection);
-        if ((RadarDirection + 180) <= Direction || Direction >= RadarDirection-180){
-            TurnRight(180 - (RadarDirection - Direction + 360)%360);
-        }else{
-            TurnLeft(180 - (Direction - RadarDirection + 360)%360);
-        }
-        SetForward(100); Go(); KeepDistance();
-        // bagi 8 kasus cari jarak terdekat ke tembok sebelah mana?
-        // misal 40, 70 oh ini lebih deket ke tembok kiri dibanding tembok bawah
-        // kabur ke arah bawah
+        Console.WriteLine("mari kearah " + (dir+Direction+360)%360);
+        SetTurnLeft(dir);
+        SetForward(150); Go(); KeepDistance();
         
     }
-
     public override void OnDeath(DeathEvent e)
     {
         stuck = false;
