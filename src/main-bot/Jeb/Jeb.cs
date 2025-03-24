@@ -14,7 +14,6 @@ public class Jeb : Bot
     Point2D enemyPosition = new Point2D(300, 400);
     double moveLength = 0;
     double enemyDistance = 0; // Menyimpan jarak ke musuh
-    double idealDistance = 200;
     bool targetLocked = false;
     int lockedTargetId = -1;
     int lostTargetCount = 0;
@@ -23,15 +22,15 @@ public class Jeb : Bot
     int shotsMissed = 0;
     int shotsHit = 0;
     double d = 250;
-    double directionEnemy = 0;
+    double extraD = 0;
     int loopCount = 0;
-    double speedEnemy = 0;
     double bulletSpeed;
     int collisionCounter = 0;
     bool stuck = false;
     double hue = 0;
     bool getRammed = false;
-    int turnRammed = 0;
+    int turnRammed = 1;
+    int turnStuck = 1;
     Random rand = new Random();
     // Color t = HsvToRgb(hue, 1.0, 1.0);  
 
@@ -56,6 +55,8 @@ public class Jeb : Bot
         GunColor = Color.FromArgb(85, 37, 255);      
         BodyColor = Color.FromArgb(253, 185, 255);    
         MaxRadarTurnRate = 45;
+        turnStuck = 1;
+        turnRammed = 1;
         while (IsRunning)
         {
             loopCount++;
@@ -70,8 +71,6 @@ public class Jeb : Bot
             if (!targetLocked)
             {
                 SetTurnRadarRight(Double.PositiveInfinity);
-                Console.WriteLine("distance: " + enemyDistance);
-                Console.WriteLine("d: " + d);
             }
             Go();
         }
@@ -97,15 +96,6 @@ public class Jeb : Bot
 
     public override void OnScannedBot(ScannedBotEvent e)
     {
-        // if (!stuck){
-        //     ScanColor = Color.FromArgb(61, 255, 152);
-        // }
-
-        if (EnemyCount > 2){
-            d = 450;
-        }else{
-            d = 250;
-        }
 
         if (e.Energy == 0){
             //fire directly
@@ -144,21 +134,26 @@ public class Jeb : Bot
     public override void OnBulletHitWall(BulletHitWallEvent e)
     {
         shotsMissed++;
-        if (shotsMissed > 3)
+        Console.WriteLine("Miss " + shotsMissed);
+        if (shotsMissed >= 2)
         {
-            d -= 30;
-            d = Math.Clamp(d, 40, 250);
+            Console.WriteLine("deketin lagi");
+            extraD -= 30;
             shotsHit = 0;
         }
     }
 
     public override void OnBulletHit(BulletHitBotEvent e)
     {
-        shotsHit++;
-        if (shotsHit > 3 && e.VictimId == lockedTargetId)
+        if (e.VictimId == lockedTargetId){
+            shotsHit++;
+        }
+        if (shotsHit > 2)
         {
-            d = 250;
+            Console.WriteLine("Jaga jarak lagi");
+            extraD += 30;
             shotsMissed = 0;
+            shotsHit = 0;
         }
     }
 
@@ -183,36 +178,37 @@ public class Jeb : Bot
 
     public void KeepDistance()
     {
-        if (stuck){
-            return;
-        }
         double angle1 = ((RadarDirection - 135) + 360)%360 * Math.PI / 180;
         double angle2 = ((RadarDirection + 135) + 360)%360 * Math.PI / 180;
-        double angle4 = ((RadarDirection - 120) + 360)%360 * Math.PI / 180;
         double angle3 = ((RadarDirection + 120) + 360)%360 * Math.PI / 180;
+        double angle4 = ((RadarDirection - 120) + 360)%360 * Math.PI / 180;
 
 
         Point2D point1 = enemyPosition + new Point2D(d * Math.Cos(angle1), d * Math.Sin(angle1));
         Point2D point2 = enemyPosition + new Point2D(d * Math.Cos(angle2), d * Math.Sin(angle2));
-        Point2D point4 = enemyPosition + new Point2D((EnemyCount > 2 ? 250 : 150) * Math.Cos(angle3), (EnemyCount > 2 ? 250 : 150) * Math.Sin(angle3));
         Point2D point3 = enemyPosition + new Point2D((EnemyCount > 2 ? 250 : 150) * Math.Cos(angle4), (EnemyCount > 2 ? 250 : 150) * Math.Sin(angle4));
+        Point2D point4 = enemyPosition + new Point2D((EnemyCount > 2 ? 250 : 150) * Math.Cos(angle3), (EnemyCount > 2 ? 250 : 150) * Math.Sin(angle3));
 
 
         //cari point yang tidak deket ke tembok
         if (!(point1.X < 50 || point1.X > 750 || point1.Y < 50 || point1.Y > 550) && enemyDistance >200)
         {
+            Console.WriteLine("Point   1");
             GoToPosition(point1.X, point1.Y);
         }
         else if (!(point2.X < 50 || point2.X > 750 || point2.Y < 50 || point2.Y > 550))
         {
+            Console.WriteLine("Point   2");
             GoToPosition(point2.X, point2.Y);
         }
-        else if (!(point3.X < 50 || point3.X > 750 || point3.Y < 50 || point3.Y > 550) && enemyDistance > 100)
+        else if (!(point3.X < 50 || point3.X > 750 || point3.Y < 50 || point3.Y > 550) && enemyDistance > 40)
         {
+            Console.WriteLine("Point   3");
             GoToPosition(point3.X, point3.Y);
         }
         else if (!(point4.X < 50 || point4.X > 750 || point4.Y < 50 || point4.Y > 550))
         {
+            Console.WriteLine("Point   4");
             GoToPosition(point4.X, point4.Y);
         }
         else
@@ -237,8 +233,6 @@ public class Jeb : Bot
             SetTurnLeft(bodyTurn);
             SetForward(distance);
         }
-        Console.WriteLine("From: " + X + " " + Y);
-        Console.WriteLine("To: " + x + " " + y);
     }
 
     public void GoToEnemy()
@@ -248,15 +242,31 @@ public class Jeb : Bot
 
     public override void OnTick(TickEvent e)
     {
+        Console.WriteLine("d : " + d);
+        Console.WriteLine(turnRammed + " " + turnStuck + " " + getRammed + " " + stuck +"         "+e.TurnNumber);
         letsGoJeb();
-        if (getRammed = false){
+        if (EnemyCount > 2){
+            extraD = Math.Clamp(extraD, -300, 0);
+            d = 450 + extraD;
+        }else{
+            extraD = Math.Clamp(extraD, -100, 0);
+            d = 250 + extraD;
+        }
+        if (!getRammed){
             turnRammed++;
         }
-        if(e.TurnNumber % 15 == 0 && stuck){
+        if (!stuck){
+            turnStuck++;
+        }
+        if (lockedTargetId == -1){
+            extraD += 50;
+        }
+        if(e.TurnNumber - turnStuck > 20 && stuck){
             stuck = false;
             SetForward(0);
+            Console.WriteLine("aman dari stuck");
         }
-        if(e.TurnNumber - turnRammed == 50){
+        if(e.TurnNumber - turnRammed > 30){
             getRammed = false;
             turnRammed = e.TurnNumber + turnRammed;
         }
@@ -265,43 +275,56 @@ public class Jeb : Bot
 
     public override void OnHitBot(HitBotEvent e)
     {
-        if (!getRammed){
+        if (!stuck){ //hanya refelek ketika pertama nabrak
+            if (DistanceRemaining < -10){SetForward(60);Go();}
+            if (DistanceRemaining > 10){SetBack(60);Go();}
+        }
+        if (!getRammed){ //jika ditabrak 2 bot, lock 1 musuh untuk beberapa turn dulu
             lockedTargetId = e.VictimId;
             enemyPosition = new Point2D(e.X, e.Y);
-            double radarTurn = NormalizeRelativeAngle(RadarBearingTo(e.X, e.Y));
-            double gunTurn = NormalizeRelativeAngle(GunBearingTo(e.X, e.Y));
-            double extraTurn = Math.Min(Math.Atan(36.0 / DistanceTo(e.X, e.Y)), 45);
-            radarTurn = radarTurn + (radarTurn < 0 ? -extraTurn : extraTurn);
-            TurnRadarLeft(radarTurn);
-            SetTurnGunLeft(gunTurn);
-            Fire(3);
-
-            collisionCounter++;
-            if (collisionCounter > 3) 
-            {
-                Console.WriteLine("Stuck ramming an enemy! Escaping.");
-                stuck = true;
-                unstuck();
-                collisionCounter = 0;
-            }
+            Console.WriteLine("Ketabrak ama " + e.VictimId);
             getRammed = true;
+        }
+
+        collisionCounter++;
+        if (collisionCounter > 3) 
+        {
+            lockedTargetId = e.VictimId;
+            enemyPosition = new Point2D(e.X, e.Y);
+            double radarTurn = NormalizeRelativeAngle(RadarBearingTo(enemyPosition.X, enemyPosition.Y));
+            double gunTurn = NormalizeRelativeAngle(GunBearingTo(enemyPosition.X, enemyPosition.Y));
+            double extraTurn = Math.Min(Math.Atan(36.0 / DistanceTo(enemyPosition.X, enemyPosition.Y)), 45);
+            radarTurn = radarTurn + (radarTurn < 0 ? -extraTurn : extraTurn);
+            SetTurnRadarLeft(0); SetTurnRadarLeft(radarTurn);SetTurnGunLeft(gunTurn);
+            Go();
+            Fire(3);
+            Console.WriteLine("Stuck ramming an enemy! Escaping.");
+            stuck = true;
+            unstuck();
+            collisionCounter = 0;
         }
     }
 
     //unstuck (belakangin musuh, terus kabur kearah kiri/kanan berdasar posisi (mirip run away))
     public void unstuck()
     {
-        if (RadarDirection + 180 <= Direction || Direction <= RadarDirection){
+        Console.WriteLine("Enemy make me stuck in " + RadarDirection);
+        if ((RadarDirection + 180) <= Direction || Direction >= RadarDirection-180){
             TurnRight(180 - (RadarDirection - Direction + 360)%360);
-            SetForward(100); Go(); KeepDistance();
         }else{
             TurnLeft(180 - (Direction - RadarDirection + 360)%360);
-            SetForward(100); Go(); KeepDistance();
         }
+        SetForward(100); Go(); KeepDistance();
         // bagi 8 kasus cari jarak terdekat ke tembok sebelah mana?
         // misal 40, 70 oh ini lebih deket ke tembok kiri dibanding tembok bawah
         // kabur ke arah bawah
         
+    }
+
+    public override void OnDeath(DeathEvent e)
+    {
+        stuck = false;
+        getRammed = false;
     }
 
     public override void OnHitWall(HitWallEvent e)
@@ -311,15 +334,15 @@ public class Jeb : Bot
 
     public override void OnHitByBullet(HitByBulletEvent e)
     {
-        
+        extraD += 80;
     }
     public void SmartShot(double x, double y, double speed, double direction, double distance)
     {
         double bullet = CalcBullet(distance);
 
         if (stuck){bullet = 3;}
-        if (Energy < 4){bullet = 0.3;}
-        if (Energy < 2){bullet = 0.1;}
+        if (Energy < 4){bullet = 0.5;}
+        if (Energy < 2){bullet = 0.2;}
 
         bulletSpeed = CalcBulletSpeed(bullet);
 
