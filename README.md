@@ -24,13 +24,13 @@ Tubes1_D1753ALG
 Setiap bot dalam repositori ini menggunakan **algoritma greedy**, yaitu strategi pengambilan keputusan berdasarkan pilihan terbaik pada saat itu tanpa mempertimbangkan dampak jangka panjang.
 
 #### Bot Utama (Jeb):
-Penjelasan algoritma greedy yang digunakan: 
+Penjelasan algoritma greedy yang digunakan: Bot Jeb_ menggabungkan strategi dari semua bot, memilih posisi optimal dan adaptif dalam menyerang.
 
 
 #### Bot Alternatif (B3040PKK, D1753ALG, F3812FIO):
-- **B3040PKK**: 
+- **B3040PKK**: Bot agresif dan fokus menyerang musuh pertama yang discan.
 - **D1753ALG**: Bot menggunakan strategi pencarian musuh locking dengan penembakan prediktif yang juga menghindari musuh perdasarkan jarak musuh.
-- **F3812FIO**: 
+- **F3812FIO**: Bot menarget musuh berpola dan menembak dengan prediksi gerakan, menjaga jarak aman.
 
 ---
 
@@ -65,7 +65,7 @@ Untuk membangun dan menjalankan bot:
 ### iv. 👤 Author
 **Nama: Kenneth Poenadi**  
 **NIM: 13523040**  
-**Email: bobkunanda@gmail.com**  
+**Email: 13523040@std.stei.itb.ac.id**  
 
 **Nama: Bob Kunanda**  
 **NIM: 13523086**  
@@ -73,7 +73,7 @@ Untuk membangun dan menjalankan bot:
 
 **Nama: Muhammad Zahran Ramadhan Ardiana**  
 **NIM: 13523104**  
-**Email: bobkunanda@gmail.com**
+**Email: 13523104@std.stei.itb.ac.id**
 
 ---
 
