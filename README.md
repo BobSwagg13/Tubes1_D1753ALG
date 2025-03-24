@@ -1,4 +1,5 @@
 # Tubes1_D1753ALG
+![Foto Tim](media/D1753ALG_TEAM.jpg)
 ## 📄 README - Dokumentasi Bot Robocode
 
 Repositori ini bernama **Tubes1_D1753ALG** dan berisi implementasi beberapa bot dengan algoritma greedy untuk permainan Robocode Tank Royale.
@@ -21,6 +22,8 @@ Tubes1_D1753ALG
 ---
 
 ### i. 🧠 Penjelasan Singkat Algoritma Greedy
+![Foto pertarungan](media/Battle.png)
+
 Setiap bot dalam repositori ini menggunakan **algoritma greedy**, yaitu strategi pengambilan keputusan berdasarkan pilihan terbaik pada saat itu tanpa mempertimbangkan dampak jangka panjang.
 
 #### Bot Utama (Jeb):
