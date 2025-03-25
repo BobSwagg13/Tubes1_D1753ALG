@@ -47,10 +47,6 @@ Untuk menjalankan program ini, dibutuhkan:
 
 ---
 
-Absolutely! Here's the updated section with `dotnet build` and `dotnet run` added for clarity and flexibility:
-
----
-
 ### iii. 🛠️ Langkah Build & Compile Program
 Untuk membangun dan menjalankan bot:
 
